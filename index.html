@@ -1,40 +1,24 @@
-<!DOCTYPE>
-<html lang="ru">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Практика</title>
-    <link href="styles.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Галерея</title>
 </head>
-<body>
-<h1>Языки для сайтов</h1>
-
-<h2>PHP и JavaScript</h2>
-<p>
-    Языки программирования <b>PHP</b> и <b>JavaScript</b> позволяют
-    сделать сайт динамичным, то есть реагирующим на действия пользователя.
-    Например, можно сделать красивую выпадающую менюшку или слайдер.
-</p>
-
-<h2>Виды скриптов</h2>
-<p>
-    Для этого пишутся скрипты (англ. <i>script</i> - "сценарий") -
-    программы, позволяющие реагировать на действия пользователя.
-    Скрипты бывают двух видов:
-</p>
-<ul>
-    <li>
-        те, которые выполняются на сервере,
-        а результат их выполнения приходит в браузер к
-        пользователю уже в готовом виде. Это скрипты,
-        написанные на языке <b>PHP</b>. На нем пишуться
-        <b>CMS-ки</b> – системы управления контентом.
-    </li>
-    <li>
-        те, которые выполняются прямо в браузере пользователя.
-        Это скрипты, написанные на языке <b>JavaScript</b>.
-        Они чаще всего используются для, того чтобы сделать страницу
-        более удобной и красивой.
-    </li>
-</ul>
-</body>
+<div class="cssSlider">
+    <ul class="slides">
+        <li id="slide1"><img src="https://images.unsplash.com/photo-1483653364400-eedcfb9f1f88?auto=format&fit=crop&w=840&q=60" alt="" /></li>
+        <li id="slide2"><img src="https://images.unsplash.com/photo-1433256392503-913cee5877e3?auto=format&fit=crop&w=840&q=60" alt="" /></li>
+        <li id="slide3"><img src="https://images.unsplash.com/photo-1483653085484-eb63c9f02547?auto=format&fit=crop&w=840&q=60" alt="" /></li>
+        <li id="slide4"><img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=840&q=60" alt="" /></li>
+        <li id="slide5"><img src="https://images.unsplash.com/photo-1453284441168-8780c9f52097?auto=format&fit=crop&w=840&q=60" alt="" /></li>
+    </ul>
+    <ul class="thumbnails">
+        <li><a href="#slide1"><img src="https://images.unsplash.com/photo-1483653364400-eedcfb9f1f88?auto=format&fit=crop&w=840&q=60" /></a></li>
+        <li><a href="#slide2"><img src="https://images.unsplash.com/photo-1433256392503-913cee5877e3?auto=format&fit=crop&w=840&q=60" /></a></li>
+        <li><a href="#slide3"><img src="https://images.unsplash.com/photo-1483653085484-eb63c9f02547?auto=format&fit=crop&w=840&q=60" /></a></li>
+        <li><a href="#slide4"><img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=840&q=60" /></a></li>
+        <li><a href="#slide5"><img src="https://images.unsplash.com/photo-1453284441168-8780c9f52097?auto=format&fit=crop&w=840&q=60" /></a></li>
+    </ul>
+</div>
 </html>
