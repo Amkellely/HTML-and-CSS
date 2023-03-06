@@ -1,163 +1,23 @@
-/* Задание 1.
-Создать объект, описывающий автомобиль (производитель,
-модель, год выпуска, средняя скорость), и следующие функции
-для работы с этим объектом.
-1. Функция для вывода на экран информации об автомобиле.
-2. Функция для подсчета необходимого времени для преодоления переданного расстояния со средней скоростью.
-Учтите, что через каждые 4 часа дороги водителю необходимо делать перерыв на 1 час.*/
-
-/*
-let car = {
-  manufacturer: "Toyota",
-  model: "Camry",
-  year: 2018,
-  avgSpeed: 70,
-
-  info: function() {
-    console.log(`Manufacturer: ${this.manufacturer}\nModel: ${this.model}\nYear: ${this.year}\nAvg. speed: ${this.avgSpeed} km/h`);
-  },
-
-  timeTravel: function(distance) {
-    let time = distance / this.avgSpeed;
-    let restTime = Math.floor(time / 4);
-    time += restTime;
-    console.log(`To travel ${distance} km with an average speed of ${this.avgSpeed} km/h, you will need approximately ${time.toFixed(1)} hours including rest time.`);
-  }
-};
-car.info();
-car.timeTravel(500);
+/*Задание 2
+Рассчитайте, сколько дней, часов, минут и секунд
+осталось до Нового года. Выведите эти значения красиво, используя метод document.write() с тегами <p> и
+<span> и классами для них. Стили можно записать в отдельном css-файле. Если одно из чисел будет меньше 10,
+то его нужно вывести с ведущим 9.
+Сделайте свой скрипт универсальным, задав дату следующего Нового года относительно текущей даты с помощью методов объекта Date.
 */
-/*
-Задание 2
-Создать объект, хранящий в себе отдельно числитель и знаменатель дроби, и следующие функции для работы с этим объектом.
-1. Функция сложения 2-х объектов-дробей.
-2. Функция вычитания 2-х объектов-дробей.
-3. Функция умножения 2-х объектов-дробей.
-4. Функция деления 2-х объектов-дробей.
-5. Функция сокращения объекта-дроби.*/
-/*
-// объект-дробь
-let fraction = {
-  numerator: 0, // числитель
-  denominator: 1, // знаменатель
-};
 
-// функция сложения двух дробей
-function add(f1, f2) {
-  let result = {
-    numerator: f1.numerator * f2.denominator + f2.numerator * f1.denominator,
-    denominator: f1.denominator * f2.denominator
-  }
-  return simplify(result);
-}
+// Задаем дату Нового года
+var newYear = new Date(new Date().getFullYear() + 1, 0, 1);
 
-// функция вычитания двух дробей
-function subtract(f1, f2) {
-  let result = {
-    numerator: f1.numerator * f2.denominator - f2.numerator * f1.denominator,
-    denominator: f1.denominator * f2.denominator
-  }
-  return simplify(result);
-}
+// Разница в миллисекундах между сегодняшней датой и Новым годом
+var diff = newYear - new Date();
 
-// функция умножения двух дробей
-function multiply(f1, f2) {
-  let result = {
-    numerator: f1.numerator * f2.numerator,
-    denominator: f1.denominator * f2.denominator
-  }
-  return simplify(result);
-}
+// Переводим разницу в дни, часы, минуты и секунды
+var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+var minutes = Math.floor((diff / 1000 / 60) % 60);
+var seconds = Math.floor((diff / 1000) % 60);
 
-// функция деления двух дробей
-function divide(f1, f2) {
-  let result = {
-    numerator: f1.numerator * f2.denominator,
-    denominator: f1.denominator * f2.numerator
-  }
-  return simplify(result);
-}
-
-// функция сокращения дроби
-function simplify(f) {
-  let gcd = findGCD(f.numerator, f.denominator);
-  return {
-    numerator: f.numerator / gcd,
-    denominator: f.denominator / gcd
-  }
-}
-
-// функция для нахождения НОД
-function findGCD(a, b) {
-  if (b == 0) {
-    return a;
-  } else {
-    return findGCD(b, a % b);
-  }
-}
-let f1 = {
-  numerator: 2,
-  denominator: 3
-};
-
-let f2 = {
-  numerator: 3,
-  denominator: 4
-};
-
-let sum = add(f1, f2); // {numerator: 17, denominator: 12}
-let difference = subtract(f1, f2); // {numerator: -1, denominator: 12}
-let product = multiply(f1, f2); // {numerator: 1, denominator: 2}
-let quotient = divide(f1, f2); // {numerator: 8, denominator: 9}
-
-let simplified = simplify(sum); // {numerator: 17, denominator: 12} => {numerator: 17, denominator: 12}*/
-/*
-Создать объект на JavaScript, описывающий время (часы, минуты, секунды), и следующие функции для работы с этим объектом.
-1. Функция вывода времени на экран.
-2. Функция изменения времени на переданное количество
-секунд.
-3. Функция изменения времени на переданное количество
-минут.
-4. Функция изменения времени на переданное количество
-часов.
-Учтите, что в последних 3-х функциях, при изменении одной
-части времени, может измениться и другая. Например: если ко
-времени «20:30:45» добавить 30 секунд, то должно получиться
-«20:31:15», а не «20:30:75».*/
-
-let Time = {
-  hours: 0,
-  minutes: 0,
-  seconds: 0
-};
-function printTime(time) {
-  console.log(`${time.hours}:${time.minutes}:${time.seconds}`);
-}
-function addSeconds(time, seconds) {
-  let totalSeconds = time.hours * 3600 + time.minutes * 60 + time.seconds + seconds;
-  time.hours = Math.floor(totalSeconds / 3600);
-  time.minutes = Math.floor((totalSeconds % 3600) / 60);
-  time.seconds = totalSeconds % 60;
-}
-function addMinutes(time, minutes) {
-  addSeconds(time, minutes * 60);
-}
-function addHours(time, hours) {
-  addSeconds(time, hours * 3600);
-}
-let time = {
-  hours: 20,
-  minutes: 30,
-  seconds: 45
-};
-
-printTime(time); // 20:30:45
-
-addSeconds(time, 30);
-printTime(time); // 20:31:15
-
-addMinutes(time, 10);
-printTime(time); // 20:41:15
-
-addHours(time, 2);
-printTime(time); // 22:41:15
+// Выводим результат на экран
+document.write('<p>До Нового года осталось:</p>');
+document.write('<p><span class="number">' + (days < 10 ? '0' : '') + days + '</span> дней <span class="number">' + (hours < 10 ? '0' : '') + hours + '</span> часов <span class="number">' + (minutes < 10 ? '0' : '') + minutes + '</span> минут <span class="number">' + (seconds < 10 ? '0' : '') + seconds + '</span> секунд</p>');
